@@ -1,0 +1,25 @@
+{
+  "name": "cannon-plugin",
+  "version": "0.1.0",
+  "description": "A lightweight 3D physics engine written in JavaScript.",
+  "homepage": "https://gitee.com/feng3d/cannon-plugin",
+  "author": "feng (http://feng3d.com)",
+  "keywords": [
+    "cannon.js",
+    "cannon",
+    "physics",
+    "feng3d",
+    "engine",
+    "3d"
+  ],
+  "main": "./src/Cannon.js",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/feng3d/cannon-plugin.git"
+  },
+  "bugs": {
+    "url": "https://gitee.com/feng3d/cannon-plugin/issues"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}
