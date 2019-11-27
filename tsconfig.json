@@ -1,0 +1,41 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "declarationMap": true,
+        "declaration": true,
+        "composite": true,
+        // "strict": true,
+        "experimentalDecorators": true,
+        "lib": [
+            "es2015",
+            "dom"
+        ],
+        "outFile": "out/cannon-plugin.js",
+        // "outDir": "debug",
+    },
+    "references": [
+        {
+            "path": "../cannon",
+        },
+        {
+            "path": "../feng3d",
+        }
+    ],
+    "files": [ //注：如果有继承关系的，父类必须排在子类前面
+        // 扩展feng3d，对接物理引擎
+        "src/components/Rigidbody.ts",
+        "src/components/Collider.ts",
+        "src/components/BoxCollider.ts",
+        "src/components/SphereCollider.ts",
+        "src/components/CylinderCollider.ts",
+        "src/components/CapsuleCollider.ts",
+        "src/components/PlaneCollider.ts",
+        "src/components/PhysicsWorld.ts",
+        "src/components/Cloth.ts",
+        // 
+        "src/polyfill/GameObjectFactory.ts",
+        "src/polyfill/Engine.ts",
+    ]
+}

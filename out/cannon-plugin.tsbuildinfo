@@ -1,0 +1,55 @@
+{
+  "bundle": {
+    "commonSourceDirectory": "..",
+    "sourceFiles": [
+      "../src/components/Rigidbody.ts",
+      "../src/components/Collider.ts",
+      "../src/components/BoxCollider.ts",
+      "../src/components/SphereCollider.ts",
+      "../src/components/CylinderCollider.ts",
+      "../src/components/CapsuleCollider.ts",
+      "../src/components/PlaneCollider.ts",
+      "../src/components/PhysicsWorld.ts",
+      "../src/components/Cloth.ts",
+      "../src/polyfill/GameObjectFactory.ts",
+      "../src/polyfill/Engine.ts"
+    ],
+    "js": {
+      "sections": [
+        {
+          "pos": 0,
+          "end": 597,
+          "kind": "emitHelpers",
+          "data": "typescript:extends"
+        },
+        {
+          "pos": 599,
+          "end": 1175,
+          "kind": "emitHelpers",
+          "data": "typescript:decorate"
+        },
+        {
+          "pos": 1177,
+          "end": 20545,
+          "kind": "text"
+        }
+      ],
+      "sources": {
+        "helpers": [
+          "typescript:extends",
+          "typescript:decorate"
+        ]
+      }
+    },
+    "dts": {
+      "sections": [
+        {
+          "pos": 0,
+          "end": 3883,
+          "kind": "text"
+        }
+      ]
+    }
+  },
+  "version": "3.7.2"
+}
