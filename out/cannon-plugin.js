@@ -19,6 +19,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var CANNON;
 (function (CANNON) {
+    CANNON.World.worldNormal = new CANNON.Vec3(0, 1, 0);
+})(CANNON || (CANNON = {}));
+var CANNON;
+(function (CANNON) {
     /**
      * 刚体
      */

@@ -1,4 +1,6 @@
 declare namespace CANNON {
+}
+declare namespace CANNON {
     /**
      * 刚体
      */

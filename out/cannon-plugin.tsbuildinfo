@@ -2,6 +2,7 @@
   "bundle": {
     "commonSourceDirectory": "..",
     "sourceFiles": [
+      "../src/World.ts",
       "../src/components/Rigidbody.ts",
       "../src/components/Collider.ts",
       "../src/components/BoxCollider.ts",
@@ -31,7 +32,7 @@
         },
         {
           "pos": 1177,
-          "end": 20668,
+          "end": 20791,
           "kind": "text"
         }
       ],
@@ -46,7 +47,7 @@
       "sections": [
         {
           "pos": 0,
-          "end": 3914,
+          "end": 3945,
           "kind": "text"
         }
       ]
