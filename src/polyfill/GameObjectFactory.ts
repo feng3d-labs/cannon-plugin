@@ -1,6 +1,6 @@
 namespace feng3d
 {
-    classUtils.addClassNameSpace("physics");
+    classUtils.addClassNameSpace("cannon-plugin");
 
     functionwrap.extendFunction(GameObjectFactory.prototype, "createCube", (g) =>
     {

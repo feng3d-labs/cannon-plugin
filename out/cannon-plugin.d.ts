@@ -173,6 +173,8 @@ declare namespace CANNON {
     }
 }
 declare namespace feng3d {
+}
+declare namespace feng3d {
     interface GameObjectFactory {
         createCloth(): any;
     }

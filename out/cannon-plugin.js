@@ -521,7 +521,11 @@ var CANNON;
 })(CANNON || (CANNON = {}));
 var feng3d;
 (function (feng3d) {
-    feng3d.classUtils.addClassNameSpace("physics");
+    feng3d.classUtils.addClassNameSpace("CANNON");
+})(feng3d || (feng3d = {}));
+var feng3d;
+(function (feng3d) {
+    feng3d.classUtils.addClassNameSpace("cannon-plugin");
     feng3d.functionwrap.extendFunction(feng3d.GameObjectFactory.prototype, "createCube", function (g) {
         g.addComponent(CANNON.BoxCollider);
         g.addComponent(CANNON.Rigidbody);

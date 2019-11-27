@@ -35,6 +35,7 @@
         "src/components/PhysicsWorld.ts",
         "src/components/Cloth.ts",
         // 
+        "src/polyfill/ClassUtils.ts",
         "src/polyfill/GameObjectFactory.ts",
         "src/polyfill/Engine.ts",
     ]
