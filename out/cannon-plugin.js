@@ -19,7 +19,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var CANNON;
 (function (CANNON) {
-    CANNON.World.worldNormal = new CANNON.Vec3(0, 1, 0);
+    CANNON.World.worldNormal = new CANNON.Vector3(0, 1, 0);
 })(CANNON || (CANNON = {}));
 var CANNON;
 (function (CANNON) {
@@ -48,7 +48,7 @@ var CANNON;
         Rigidbody.prototype.init = function () {
             var _this = this;
             this.body = new CANNON.Body({ mass: this.mass });
-            this.body.position = new CANNON.Vec3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+            this.body.position = new CANNON.Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
             var colliders = this.gameObject.getComponents(CANNON.Collider);
             colliders.forEach(function (element) {
                 _this.body.addShape(element.shape);
@@ -116,7 +116,7 @@ var CANNON;
             return _this;
         }
         BoxCollider.prototype.init = function () {
-            var halfExtents = new CANNON.Vec3(this.width / 2, this.height / 2, this.depth / 2);
+            var halfExtents = new CANNON.Vector3(this.width / 2, this.height / 2, this.depth / 2);
             this._shape = new CANNON.Box(halfExtents);
         };
         __decorate([
@@ -436,7 +436,7 @@ var CANNON;
         };
         PhysicsWorld.prototype.update = function (interval) {
             this.initWorld();
-            this.world.gravity = new CANNON.Vec3(this.gravity.x, this.gravity.y, this.gravity.z);
+            this.world.gravity = new CANNON.Vector3(this.gravity.x, this.gravity.y, this.gravity.z);
             this.world.step(1.0 / 60.0, interval / 1000, 3);
         };
         __decorate([

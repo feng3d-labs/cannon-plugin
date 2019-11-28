@@ -1,4 +1,4 @@
 namespace CANNON
 {
-    World.worldNormal = new Vec3(0, 1, 0);
+    World.worldNormal = new Vector3(0, 1, 0);
 }

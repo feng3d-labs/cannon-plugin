@@ -26,7 +26,7 @@ namespace CANNON
         {
             this.body = new Body({ mass: this.mass });
 
-            this.body.position = new Vec3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+            this.body.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
 
             var colliders = this.gameObject.getComponents(Collider);
             colliders.forEach(element =>

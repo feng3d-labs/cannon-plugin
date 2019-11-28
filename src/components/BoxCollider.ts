@@ -31,7 +31,7 @@ namespace CANNON
 
         init()
         {
-            var halfExtents = new Vec3(this.width / 2, this.height / 2, this.depth / 2);
+            var halfExtents = new Vector3(this.width / 2, this.height / 2, this.depth / 2);
             this._shape = new Box(halfExtents);
         }
     }

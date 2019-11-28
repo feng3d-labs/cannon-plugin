@@ -80,7 +80,7 @@ namespace CANNON
         update(interval?: number)
         {
             this.initWorld();
-            this.world.gravity = new Vec3(this.gravity.x, this.gravity.y, this.gravity.z);
+            this.world.gravity = new Vector3(this.gravity.x, this.gravity.y, this.gravity.z);
             this.world.step(1.0 / 60.0, interval / 1000, 3);
         }
 
