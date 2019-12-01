@@ -529,10 +529,13 @@ var feng3d;
 })(feng3d || (feng3d = {}));
 var feng3d;
 (function (feng3d) {
-    feng3d.classUtils.addClassNameSpace("cannon-plugin");
-    feng3d.functionwrap.extendFunction(feng3d.GameObjectFactory.prototype, "createCube", function (g) {
-        g.addComponent(CANNON.BoxCollider);
-        g.addComponent(CANNON.Rigidbody);
+    feng3d.functionwrap.extendFunction(feng3d.GameObject, "createPrimitive", function (g, type) {
+        switch (type) {
+            case "Cube":
+                g.addComponent(CANNON.BoxCollider);
+                g.addComponent(CANNON.Rigidbody);
+                break;
+        }
         return g;
     });
     feng3d.functionwrap.extendFunction(feng3d.GameObjectFactory.prototype, "createPlane", function (g) {

@@ -1,11 +1,14 @@
 namespace feng3d
 {
-    classUtils.addClassNameSpace("cannon-plugin");
-
-    functionwrap.extendFunction(GameObjectFactory.prototype, "createCube", (g) =>
+    functionwrap.extendFunction(GameObject, "createPrimitive", (g, type) =>
     {
-        g.addComponent(CANNON.BoxCollider);
-        g.addComponent(CANNON.Rigidbody);
+        switch (type)
+        {
+            case "Cube":
+                g.addComponent(CANNON.BoxCollider);
+                g.addComponent(CANNON.Rigidbody);
+                break;
+        }
         return g;
     });
 
@@ -39,7 +42,7 @@ namespace feng3d
 
     export interface GameObjectFactory
     {
-        createCloth()
+        createCloth(name?: string): GameObject;
     }
 
     GameObjectFactory.prototype.createCloth = function (name = "Cloth")
