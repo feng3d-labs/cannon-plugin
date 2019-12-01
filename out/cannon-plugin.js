@@ -530,42 +530,31 @@ var feng3d;
 var feng3d;
 (function (feng3d) {
     feng3d.functionwrap.extendFunction(feng3d.GameObject, "createPrimitive", function (g, type) {
-        switch (type) {
-            case "Cube":
-                g.addComponent(CANNON.BoxCollider);
-                g.addComponent(CANNON.Rigidbody);
-                break;
+        if (type == "Cube") {
+            g.addComponent(CANNON.BoxCollider);
+            g.addComponent(CANNON.Rigidbody);
+        }
+        else if (type == "Plane") {
+            g.addComponent(CANNON.PlaneCollider);
+            g.addComponent(CANNON.Rigidbody);
+        }
+        else if (type == "Cylinder") {
+            g.addComponent(CANNON.CylinderCollider);
+            g.addComponent(CANNON.Rigidbody);
+        }
+        else if (type == "Sphere") {
+            g.addComponent(CANNON.SphereCollider);
+            g.addComponent(CANNON.Rigidbody);
+        }
+        else if (type == "Capsule") {
+            g.addComponent(CANNON.CapsuleCollider);
+            g.addComponent(CANNON.Rigidbody);
+        }
+        else if (type == "Cloth") {
+            g.addComponent(CANNON.Cloth);
         }
         return g;
     });
-    feng3d.functionwrap.extendFunction(feng3d.GameObjectFactory.prototype, "createPlane", function (g) {
-        g.addComponent(CANNON.PlaneCollider);
-        g.addComponent(CANNON.Rigidbody);
-        return g;
-    });
-    feng3d.functionwrap.extendFunction(feng3d.GameObjectFactory.prototype, "createCylinder", function (g) {
-        g.addComponent(CANNON.CylinderCollider);
-        g.addComponent(CANNON.Rigidbody);
-        return g;
-    });
-    feng3d.functionwrap.extendFunction(feng3d.GameObjectFactory.prototype, "createSphere", function (g) {
-        g.addComponent(CANNON.SphereCollider);
-        g.addComponent(CANNON.Rigidbody);
-        return g;
-    });
-    feng3d.functionwrap.extendFunction(feng3d.GameObjectFactory.prototype, "createCapsule", function (g) {
-        g.addComponent(CANNON.CapsuleCollider);
-        g.addComponent(CANNON.Rigidbody);
-        return g;
-    });
-    feng3d.GameObjectFactory.prototype.createCloth = function (name) {
-        if (name === void 0) { name = "Cloth"; }
-        var g = feng3d.serialization.setValue(new feng3d.GameObject(), {
-            name: name,
-        });
-        g.addComponent(CANNON.Cloth);
-        return g;
-    };
 })(feng3d || (feng3d = {}));
 var feng3d;
 (function (feng3d) {

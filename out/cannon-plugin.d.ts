@@ -177,8 +177,8 @@ declare namespace CANNON {
 declare namespace feng3d {
 }
 declare namespace feng3d {
-    interface GameObjectFactory {
-        createCloth(name?: string): GameObject;
+    interface PrimitiveGameObject {
+        Cloth: GameObject;
     }
 }
 declare namespace feng3d {
