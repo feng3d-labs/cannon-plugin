@@ -30,7 +30,6 @@ var CANNON;
         __extends(Rigidbody, _super);
         function Rigidbody() {
             var _this = _super !== null && _super.apply(this, arguments) || this;
-            _this.__class__ = "physics.Rigidbody";
             _this.body = new CANNON.Body();
             _this.runEnvironment = feng3d.RunEnvironment.feng3d;
             return _this;

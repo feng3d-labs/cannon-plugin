@@ -5,7 +5,7 @@ namespace CANNON
      */
     export class Rigidbody extends feng3d.Behaviour
     {
-        __class__: "physics.Rigidbody" = "physics.Rigidbody";
+        __class__: "physics.Rigidbody";
 
         body = new Body();
 
