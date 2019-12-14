@@ -41,8 +41,8 @@ namespace CANNON
          */
         update(interval?: number)
         {
-            var scene3D = this.getComponentsInParents(feng3d.Scene3D)[0];
-            if (scene3D)
+            var scene = this.getComponentsInParents(feng3d.Scene)[0];
+            if (scene)
             {
                 this.transform.position = new feng3d.Vector3(this.body.position.x, this.body.position.y, this.body.position.z);
             }

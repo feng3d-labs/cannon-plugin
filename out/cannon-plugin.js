@@ -57,8 +57,8 @@ var CANNON;
          * 每帧执行
          */
         Rigidbody.prototype.update = function (interval) {
-            var scene3D = this.getComponentsInParents(feng3d.Scene3D)[0];
-            if (scene3D) {
+            var scene = this.getComponentsInParents(feng3d.Scene)[0];
+            if (scene) {
                 this.transform.position = new feng3d.Vector3(this.body.position.x, this.body.position.y, this.body.position.z);
             }
         };
@@ -557,7 +557,7 @@ var feng3d;
 })(feng3d || (feng3d = {}));
 var feng3d;
 (function (feng3d) {
-    // 默认在 Scene3D.init 添加物理世界模块
+    // 默认在 Scene.init 添加物理世界模块
     feng3d.functionwrap.extendFunction(feng3d.Engine, "createNewScene", function (r) {
         r.gameObject.addComponent(CANNON.PhysicsWorld);
         return r;
