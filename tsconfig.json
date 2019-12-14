@@ -39,6 +39,6 @@
         // 
         "src/polyfill/ClassUtils.ts",
         "src/polyfill/GameObject.ts",
-        "src/polyfill/Engine.ts",
+        "src/polyfill/View.ts",
     ]
 }
