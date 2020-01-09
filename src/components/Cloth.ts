@@ -1,6 +1,6 @@
 namespace CANNON
 {
-    export class Cloth extends feng3d.Model
+    export class Cloth extends feng3d.Renderable
     {
         runEnvironment = feng3d.RunEnvironment.feng3d;
         particles: Body[][];

@@ -519,7 +519,7 @@ var CANNON;
             });
         };
         return Cloth;
-    }(feng3d.Model));
+    }(feng3d.Renderable));
     CANNON.Cloth = Cloth;
 })(CANNON || (CANNON = {}));
 var feng3d;
