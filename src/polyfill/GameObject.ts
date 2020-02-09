@@ -28,7 +28,6 @@ namespace feng3d
         }
         return g;
     });
-
     export interface PrimitiveGameObject
     {
         Cloth: GameObject;
