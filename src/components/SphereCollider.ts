@@ -3,6 +3,7 @@ namespace CANNON
     /**
      * 球形碰撞体
      */
+    @feng3d.AddComponentMenu("Physics/Sphere Collider")
     export class SphereCollider extends Collider
     {
         /**

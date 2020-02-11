@@ -66,6 +66,9 @@ var CANNON;
             feng3d.oav(),
             feng3d.serialize
         ], Rigidbody.prototype, "mass", null);
+        Rigidbody = __decorate([
+            feng3d.AddComponentMenu("Physics/Rigidbody")
+        ], Rigidbody);
         return Rigidbody;
     }(feng3d.Behaviour));
     CANNON.Rigidbody = Rigidbody;
@@ -130,6 +133,9 @@ var CANNON;
             feng3d.oav(),
             feng3d.serialize
         ], BoxCollider.prototype, "depth", void 0);
+        BoxCollider = __decorate([
+            feng3d.AddComponentMenu("Physics/Box Collider")
+        ], BoxCollider);
         return BoxCollider;
     }(CANNON.Collider));
     CANNON.BoxCollider = BoxCollider;
@@ -168,6 +174,9 @@ var CANNON;
             feng3d.oav(),
             feng3d.serialize
         ], SphereCollider.prototype, "radius", null);
+        SphereCollider = __decorate([
+            feng3d.AddComponentMenu("Physics/Sphere Collider")
+        ], SphereCollider);
         return SphereCollider;
     }(CANNON.Collider));
     CANNON.SphereCollider = SphereCollider;
@@ -218,6 +227,9 @@ var CANNON;
             feng3d.oav(),
             feng3d.serialize
         ], CylinderCollider.prototype, "segmentsW", void 0);
+        CylinderCollider = __decorate([
+            feng3d.AddComponentMenu("Physics/Cylinder Collider")
+        ], CylinderCollider);
         return CylinderCollider;
     }(CANNON.Collider));
     CANNON.CylinderCollider = CylinderCollider;
@@ -368,6 +380,9 @@ var CANNON;
         PlaneCollider.prototype.init = function () {
             this._shape = new CANNON.Plane();
         };
+        PlaneCollider = __decorate([
+            feng3d.AddComponentMenu("Physics/Plane Collider")
+        ], PlaneCollider);
         return PlaneCollider;
     }(CANNON.Collider));
     CANNON.PlaneCollider = PlaneCollider;
@@ -442,6 +457,9 @@ var CANNON;
             feng3d.oav(),
             feng3d.serialize
         ], PhysicsWorld.prototype, "gravity", void 0);
+        PhysicsWorld = __decorate([
+            feng3d.AddComponentMenu("Physics/PhysicsWorld")
+        ], PhysicsWorld);
         return PhysicsWorld;
     }(feng3d.Behaviour));
     CANNON.PhysicsWorld = PhysicsWorld;

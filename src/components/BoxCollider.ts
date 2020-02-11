@@ -3,6 +3,7 @@ namespace CANNON
     /**
      * 长方体碰撞体
      */
+    @feng3d.AddComponentMenu("Physics/Box Collider")
     export class BoxCollider extends Collider
     {
         /**

@@ -3,6 +3,7 @@ namespace CANNON
     /**
      * 刚体
      */
+    @feng3d.AddComponentMenu("Physics/Rigidbody")
     export class Rigidbody extends feng3d.Behaviour
     {
         __class__: "physics.Rigidbody";

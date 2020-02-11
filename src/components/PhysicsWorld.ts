@@ -3,6 +3,7 @@ namespace CANNON
     /**
      * 物理世界组件
      */
+    @feng3d.AddComponentMenu("Physics/PhysicsWorld")
     export class PhysicsWorld extends feng3d.Behaviour
     {
         runEnvironment = feng3d.RunEnvironment.feng3d;
