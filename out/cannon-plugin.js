@@ -537,7 +537,7 @@ var CANNON;
             });
         };
         return Cloth;
-    }(feng3d.Renderable));
+    }(feng3d.Renderer));
     CANNON.Cloth = Cloth;
 })(CANNON || (CANNON = {}));
 var feng3d;

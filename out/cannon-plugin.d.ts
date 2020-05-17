@@ -166,7 +166,7 @@ declare namespace CANNON {
     }
 }
 declare namespace CANNON {
-    class Cloth extends feng3d.Renderable {
+    class Cloth extends feng3d.Renderer {
         runEnvironment: feng3d.RunEnvironment;
         particles: Body[][];
         constraints: DistanceConstraint[];
