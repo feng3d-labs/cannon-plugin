@@ -41,7 +41,7 @@ var CANNON;
             set: function (v) {
                 this.body.mass = v;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Rigidbody.prototype.init = function () {
@@ -87,7 +87,7 @@ var CANNON;
             get: function () {
                 return this._shape;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         return Collider;
@@ -164,7 +164,7 @@ var CANNON;
                 if (this._shape)
                     this._shape.radius = v;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         SphereCollider.prototype.init = function () {
@@ -263,7 +263,7 @@ var CANNON;
                 this._radius = v;
                 this.invalidateGeometry();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(CapsuleCollider.prototype, "height", {
@@ -279,7 +279,7 @@ var CANNON;
                 this._height = v;
                 this.invalidateGeometry();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(CapsuleCollider.prototype, "segmentsW", {
@@ -295,7 +295,7 @@ var CANNON;
                 this._segmentsW = v;
                 this.invalidateGeometry();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(CapsuleCollider.prototype, "segmentsH", {
@@ -311,7 +311,7 @@ var CANNON;
                 this._segmentsH = v;
                 this.invalidateGeometry();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(CapsuleCollider.prototype, "yUp", {
@@ -327,7 +327,7 @@ var CANNON;
                 this._yUp = v;
                 this.invalidateGeometry();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         CapsuleCollider.prototype.init = function () {
