@@ -44,34 +44,34 @@ namespace CANNON
             this.on("removeComponent", this.onRemovedComponent, this);
         }
 
-        private onAddComponent(e: feng3d.Event<feng3d.Component>)
+        private onAddComponent(e: feng3d.Event<{ gameobject: feng3d.GameObject; component: feng3d.Component; }>)
         {
-            if (e.data instanceof Rigidbody)
+            if (e.data.component instanceof Rigidbody)
             {
-                this.world.addBody(e.data.body);
+                this.world.addBody(e.data.component.body);
             }
         }
 
-        private onRemovedComponent(e: feng3d.Event<feng3d.Component>)
+        private onRemovedComponent(e: feng3d.Event<{ gameobject: feng3d.GameObject; component: feng3d.Component; }>)
         {
-            if (e.data instanceof Rigidbody)
+            if (e.data.component instanceof Rigidbody)
             {
-                this.world.removeBody(e.data.body);
+                this.world.removeBody(e.data.component.body);
             }
         }
 
-        private onAddChild(e: feng3d.Event<feng3d.GameObject>)
+        private onAddChild(e: feng3d.Event<{ parent: feng3d.GameObject; child: feng3d.GameObject; }>)
         {
-            var bodyComponent = e.data.getComponent(Rigidbody);
+            var bodyComponent = e.data.child.getComponent(Rigidbody);
             if (bodyComponent)
             {
                 this.world.addBody(bodyComponent.body);
             }
         }
 
-        private onRemoveChild(e: feng3d.Event<feng3d.GameObject>)
+        private onRemoveChild(e: feng3d.Event<{ parent: feng3d.GameObject; child: feng3d.GameObject; }>)
         {
-            var bodyComponent = e.data.getComponent(Rigidbody);
+            var bodyComponent = e.data.child.getComponent(Rigidbody);
             if (bodyComponent)
             {
                 this.world.removeBody(bodyComponent.body);

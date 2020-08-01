@@ -353,23 +353,23 @@ var CANNON;
             this.on("removeComponent", this.onRemovedComponent, this);
         }
         onAddComponent(e) {
-            if (e.data instanceof CANNON.Rigidbody) {
-                this.world.addBody(e.data.body);
+            if (e.data.component instanceof CANNON.Rigidbody) {
+                this.world.addBody(e.data.component.body);
             }
         }
         onRemovedComponent(e) {
-            if (e.data instanceof CANNON.Rigidbody) {
-                this.world.removeBody(e.data.body);
+            if (e.data.component instanceof CANNON.Rigidbody) {
+                this.world.removeBody(e.data.component.body);
             }
         }
         onAddChild(e) {
-            var bodyComponent = e.data.getComponent(CANNON.Rigidbody);
+            var bodyComponent = e.data.child.getComponent(CANNON.Rigidbody);
             if (bodyComponent) {
                 this.world.addBody(bodyComponent.body);
             }
         }
         onRemoveChild(e) {
-            var bodyComponent = e.data.getComponent(CANNON.Rigidbody);
+            var bodyComponent = e.data.child.getComponent(CANNON.Rigidbody);
             if (bodyComponent) {
                 this.world.removeBody(bodyComponent.body);
             }
