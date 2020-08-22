@@ -391,7 +391,7 @@ var CANNON;
 })(CANNON || (CANNON = {}));
 var CANNON;
 (function (CANNON) {
-    class Cloth extends feng3d.Renderer {
+    class Cloth extends feng3d.Renderable {
         constructor() {
             super(...arguments);
             this.runEnvironment = feng3d.RunEnvironment.feng3d;
