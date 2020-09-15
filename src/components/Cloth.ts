@@ -1,5 +1,8 @@
+namespace feng3d { export interface ComponentMap { Cloth: CANNON.Cloth; } }
+
 namespace CANNON
 {
+    @feng3d.RegisterComponent()
     export class Cloth extends feng3d.Renderable
     {
         runEnvironment = feng3d.RunEnvironment.feng3d;
@@ -78,7 +81,7 @@ namespace CANNON
         {
             super.update();
 
-            var physicsWorld = this.getComponentsInParents(CANNON.PhysicsWorld)[0];
+            var physicsWorld = this.getComponentsInParents("PhysicsWorld")[0];
             var world = physicsWorld.world;
 
             this.particles.forEach(p =>

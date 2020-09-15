@@ -1,9 +1,12 @@
+namespace feng3d { export interface ComponentMap { CylinderCollider: CANNON.CylinderCollider; } }
+
 namespace CANNON
 {
     /**
      * 圆柱体碰撞体
      */
     @feng3d.AddComponentMenu("Physics/Cylinder Collider")
+    @feng3d.RegisterComponent()
     export class CylinderCollider extends Collider
     {
         /**

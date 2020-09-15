@@ -1,9 +1,12 @@
+namespace feng3d { export interface ComponentMap { SphereCollider: CANNON.SphereCollider; } }
+
 namespace CANNON
 {
     /**
      * 球形碰撞体
      */
     @feng3d.AddComponentMenu("Physics/Sphere Collider")
+    @feng3d.RegisterComponent()
     export class SphereCollider extends Collider
     {
         /**

@@ -1,8 +1,11 @@
+namespace feng3d { export interface ComponentMap { CapsuleCollider: CANNON.CapsuleCollider; } }
+
 namespace CANNON
 {
     /**
      * 胶囊体碰撞体
      */
+    @feng3d.RegisterComponent()
     export class CapsuleCollider extends Collider
     {
         /**

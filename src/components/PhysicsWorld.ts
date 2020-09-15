@@ -1,9 +1,12 @@
+namespace feng3d { export interface ComponentMap { PhysicsWorld: CANNON.PhysicsWorld; } }
+
 namespace CANNON
 {
     /**
      * 物理世界组件
      */
     @feng3d.AddComponentMenu("Physics/PhysicsWorld")
+    @feng3d.RegisterComponent()
     export class PhysicsWorld extends feng3d.Behaviour
     {
         runEnvironment = feng3d.RunEnvironment.feng3d;
@@ -31,7 +34,7 @@ namespace CANNON
             if (this._isInit) return true;
             this._isInit = true;
 
-            var bodys = this.getComponentsInChildren(Rigidbody).map(c => c.body);
+            var bodys = this.getComponentsInChildren("Rigidbody").map(c => c.body);
             bodys.forEach(v =>
             {
                 this.world.addBody(v);
@@ -62,7 +65,7 @@ namespace CANNON
 
         private onAddChild(e: feng3d.Event<{ parent: feng3d.GameObject; child: feng3d.GameObject; }>)
         {
-            var bodyComponent = e.data.child.getComponent(Rigidbody);
+            var bodyComponent = e.data.child.getComponent("Rigidbody");
             if (bodyComponent)
             {
                 this.world.addBody(bodyComponent.body);
@@ -71,7 +74,7 @@ namespace CANNON
 
         private onRemoveChild(e: feng3d.Event<{ parent: feng3d.GameObject; child: feng3d.GameObject; }>)
         {
-            var bodyComponent = e.data.child.getComponent(Rigidbody);
+            var bodyComponent = e.data.child.getComponent("Rigidbody");
             if (bodyComponent)
             {
                 this.world.removeBody(bodyComponent.body);

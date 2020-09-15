@@ -28,7 +28,7 @@ var CANNON;
         init() {
             this.body = new CANNON.Body({ mass: this.mass });
             this.body.position = new CANNON.Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
-            var colliders = this.gameObject.getComponents(CANNON.Collider);
+            var colliders = this.gameObject.getComponents("Collider");
             colliders.forEach(element => {
                 this.body.addShape(element.shape);
             });
@@ -37,7 +37,7 @@ var CANNON;
          * 每帧执行
          */
         update(interval) {
-            var scene = this.getComponentsInParents(feng3d.Scene)[0];
+            var scene = this.getComponentsInParents("Scene")[0];
             if (scene) {
                 this.transform.position = new feng3d.Vector3(this.body.position.x, this.body.position.y, this.body.position.z);
             }
@@ -48,7 +48,8 @@ var CANNON;
         feng3d.serialize
     ], Rigidbody.prototype, "mass", null);
     Rigidbody = __decorate([
-        feng3d.AddComponentMenu("Physics/Rigidbody")
+        feng3d.AddComponentMenu("Physics/Rigidbody"),
+        feng3d.RegisterComponent()
     ], Rigidbody);
     CANNON.Rigidbody = Rigidbody;
 })(CANNON || (CANNON = {}));
@@ -57,11 +58,14 @@ var CANNON;
     /**
      * 碰撞体
      */
-    class Collider extends feng3d.Component {
+    let Collider = class Collider extends feng3d.Component {
         get shape() {
             return this._shape;
         }
-    }
+    };
+    Collider = __decorate([
+        feng3d.RegisterComponent()
+    ], Collider);
     CANNON.Collider = Collider;
 })(CANNON || (CANNON = {}));
 var CANNON;
@@ -103,7 +107,8 @@ var CANNON;
         feng3d.serialize
     ], BoxCollider.prototype, "depth", void 0);
     BoxCollider = __decorate([
-        feng3d.AddComponentMenu("Physics/Box Collider")
+        feng3d.AddComponentMenu("Physics/Box Collider"),
+        feng3d.RegisterComponent()
     ], BoxCollider);
     CANNON.BoxCollider = BoxCollider;
 })(CANNON || (CANNON = {}));
@@ -137,7 +142,8 @@ var CANNON;
         feng3d.serialize
     ], SphereCollider.prototype, "radius", null);
     SphereCollider = __decorate([
-        feng3d.AddComponentMenu("Physics/Sphere Collider")
+        feng3d.AddComponentMenu("Physics/Sphere Collider"),
+        feng3d.RegisterComponent()
     ], SphereCollider);
     CANNON.SphereCollider = SphereCollider;
 })(CANNON || (CANNON = {}));
@@ -187,7 +193,8 @@ var CANNON;
         feng3d.serialize
     ], CylinderCollider.prototype, "segmentsW", void 0);
     CylinderCollider = __decorate([
-        feng3d.AddComponentMenu("Physics/Cylinder Collider")
+        feng3d.AddComponentMenu("Physics/Cylinder Collider"),
+        feng3d.RegisterComponent()
     ], CylinderCollider);
     CANNON.CylinderCollider = CylinderCollider;
 })(CANNON || (CANNON = {}));
@@ -196,7 +203,7 @@ var CANNON;
     /**
      * 胶囊体碰撞体
      */
-    class CapsuleCollider extends CANNON.Collider {
+    let CapsuleCollider = class CapsuleCollider extends CANNON.Collider {
         constructor() {
             super(...arguments);
             this._radius = 0.5;
@@ -278,7 +285,7 @@ var CANNON;
             g.updateGrometry();
             this._shape = new CANNON.Trimesh(g.positions, g.indices);
         }
-    }
+    };
     __decorate([
         feng3d.serialize,
         feng3d.oav()
@@ -299,6 +306,9 @@ var CANNON;
         feng3d.serialize,
         feng3d.oav()
     ], CapsuleCollider.prototype, "yUp", null);
+    CapsuleCollider = __decorate([
+        feng3d.RegisterComponent()
+    ], CapsuleCollider);
     CANNON.CapsuleCollider = CapsuleCollider;
 })(CANNON || (CANNON = {}));
 var CANNON;
@@ -312,7 +322,8 @@ var CANNON;
         }
     };
     PlaneCollider = __decorate([
-        feng3d.AddComponentMenu("Physics/Plane Collider")
+        feng3d.AddComponentMenu("Physics/Plane Collider"),
+        feng3d.RegisterComponent()
     ], PlaneCollider);
     CANNON.PlaneCollider = PlaneCollider;
 })(CANNON || (CANNON = {}));
@@ -342,7 +353,7 @@ var CANNON;
             if (this._isInit)
                 return true;
             this._isInit = true;
-            var bodys = this.getComponentsInChildren(CANNON.Rigidbody).map(c => c.body);
+            var bodys = this.getComponentsInChildren("Rigidbody").map(c => c.body);
             bodys.forEach(v => {
                 this.world.addBody(v);
             });
@@ -363,13 +374,13 @@ var CANNON;
             }
         }
         onAddChild(e) {
-            var bodyComponent = e.data.child.getComponent(CANNON.Rigidbody);
+            var bodyComponent = e.data.child.getComponent("Rigidbody");
             if (bodyComponent) {
                 this.world.addBody(bodyComponent.body);
             }
         }
         onRemoveChild(e) {
-            var bodyComponent = e.data.child.getComponent(CANNON.Rigidbody);
+            var bodyComponent = e.data.child.getComponent("Rigidbody");
             if (bodyComponent) {
                 this.world.removeBody(bodyComponent.body);
             }
@@ -385,13 +396,14 @@ var CANNON;
         feng3d.serialize
     ], PhysicsWorld.prototype, "gravity", void 0);
     PhysicsWorld = __decorate([
-        feng3d.AddComponentMenu("Physics/PhysicsWorld")
+        feng3d.AddComponentMenu("Physics/PhysicsWorld"),
+        feng3d.RegisterComponent()
     ], PhysicsWorld);
     CANNON.PhysicsWorld = PhysicsWorld;
 })(CANNON || (CANNON = {}));
 var CANNON;
 (function (CANNON) {
-    class Cloth extends feng3d.Renderable {
+    let Cloth = class Cloth extends feng3d.Renderable {
         constructor() {
             super(...arguments);
             this.runEnvironment = feng3d.RunEnvironment.feng3d;
@@ -448,7 +460,7 @@ var CANNON;
         }
         update() {
             super.update();
-            var physicsWorld = this.getComponentsInParents(CANNON.PhysicsWorld)[0];
+            var physicsWorld = this.getComponentsInParents("PhysicsWorld")[0];
             var world = physicsWorld.world;
             this.particles.forEach(p => {
                 p.forEach(v => {
@@ -459,7 +471,10 @@ var CANNON;
                 world.addConstraint(v);
             });
         }
-    }
+    };
+    Cloth = __decorate([
+        feng3d.RegisterComponent()
+    ], Cloth);
     CANNON.Cloth = Cloth;
 })(CANNON || (CANNON = {}));
 var feng3d;
@@ -470,27 +485,27 @@ var feng3d;
 (function (feng3d) {
     feng3d.functionwrap.extendFunction(feng3d.GameObject, "createPrimitive", (g, type) => {
         if (type == "Cube") {
-            g.addComponent(CANNON.BoxCollider);
-            g.addComponent(CANNON.Rigidbody);
+            g.addComponent("BoxCollider");
+            g.addComponent("Rigidbody");
         }
         else if (type == "Plane") {
-            g.addComponent(CANNON.PlaneCollider);
-            g.addComponent(CANNON.Rigidbody);
+            g.addComponent("PlaneCollider");
+            g.addComponent("Rigidbody");
         }
         else if (type == "Cylinder") {
-            g.addComponent(CANNON.CylinderCollider);
-            g.addComponent(CANNON.Rigidbody);
+            g.addComponent("CylinderCollider");
+            g.addComponent("Rigidbody");
         }
         else if (type == "Sphere") {
-            g.addComponent(CANNON.SphereCollider);
-            g.addComponent(CANNON.Rigidbody);
+            g.addComponent("SphereCollider");
+            g.addComponent("Rigidbody");
         }
         else if (type == "Capsule") {
-            g.addComponent(CANNON.CapsuleCollider);
-            g.addComponent(CANNON.Rigidbody);
+            g.addComponent("CapsuleCollider");
+            g.addComponent("Rigidbody");
         }
         else if (type == "Cloth") {
-            g.addComponent(CANNON.Cloth);
+            g.addComponent("Cloth");
         }
         return g;
     });
@@ -499,7 +514,7 @@ var feng3d;
 (function (feng3d) {
     // 默认在 Scene.init 添加物理世界模块
     feng3d.functionwrap.extendFunction(feng3d.View, "createNewScene", function (r) {
-        r.gameObject.addComponent(CANNON.PhysicsWorld);
+        r.gameObject.addComponent("PhysicsWorld");
         return r;
     });
 })(feng3d || (feng3d = {}));

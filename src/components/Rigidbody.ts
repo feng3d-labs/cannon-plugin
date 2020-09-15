@@ -1,9 +1,12 @@
+namespace feng3d { export interface ComponentMap { Rigidbody: CANNON.Rigidbody; } }
+
 namespace CANNON
 {
     /**
      * 刚体
      */
     @feng3d.AddComponentMenu("Physics/Rigidbody")
+    @feng3d.RegisterComponent()
     export class Rigidbody extends feng3d.Behaviour
     {
         __class__: "physics.Rigidbody";
@@ -29,7 +32,7 @@ namespace CANNON
 
             this.body.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
 
-            var colliders = this.gameObject.getComponents(Collider);
+            var colliders = this.gameObject.getComponents("Collider");
             colliders.forEach(element =>
             {
                 this.body.addShape(element.shape);
@@ -42,7 +45,7 @@ namespace CANNON
          */
         update(interval?: number)
         {
-            var scene = this.getComponentsInParents(feng3d.Scene)[0];
+            var scene = this.getComponentsInParents("Scene")[0];
             if (scene)
             {
                 this.transform.position = new feng3d.Vector3(this.body.position.x, this.body.position.y, this.body.position.z);
