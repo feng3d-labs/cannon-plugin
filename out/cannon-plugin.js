@@ -52,6 +52,10 @@ var CANNON;
             colliders.forEach(function (element) {
                 _this.body.addShape(element.shape);
             });
+            this.on("transformChanged", this._onTransformChanged, this);
+        };
+        Rigidbody.prototype._onTransformChanged = function () {
+            this.body.position = new CANNON.Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
         };
         /**
          * 每帧执行

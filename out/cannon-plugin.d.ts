@@ -16,6 +16,7 @@ declare namespace CANNON {
         get mass(): number;
         set mass(v: number);
         init(): void;
+        private _onTransformChanged;
         /**
          * 每帧执行
          */

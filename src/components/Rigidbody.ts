@@ -38,6 +38,12 @@ namespace CANNON
                 this.body.addShape(element.shape);
             });
 
+            this.on("transformChanged", this._onTransformChanged, this);
+        }
+
+        private _onTransformChanged()
+        {
+            this.body.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
         }
 
         /**
