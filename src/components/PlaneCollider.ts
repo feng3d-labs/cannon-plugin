@@ -2,6 +2,11 @@ namespace feng3d { export interface ComponentMap { PlaneCollider: CANNON.PlaneCo
 
 namespace CANNON
 {
+    export interface PlaneCollider
+    {
+        get shape(): Plane;
+    }
+
     /**
      * 平面碰撞体
      */
@@ -9,9 +14,6 @@ namespace CANNON
     @feng3d.RegisterComponent()
     export class PlaneCollider extends Collider
     {
-        readonly shape: Plane;
-        protected _shape: Plane;
-
         init()
         {
             this._shape = new Plane();
