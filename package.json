@@ -2,6 +2,12 @@
   "name": "cannon-plugin",
   "version": "0.1.0",
   "description": "将物理引擎cannon使用到feng3d的插件。",
+  "main": "out/cannon-plugin.js",
+  "types": "out/cannon-plugin.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
   "homepage": "https://gitee.com/feng3d/cannon-plugin",
   "author": "feng (http://feng3d.com)",
   "keywords": [
@@ -12,14 +18,14 @@
     "engine",
     "3d"
   ],
-  "main": "./out/cannon-plugin.js",
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/feng3d/cannon-plugin.git"
+    "url": "https://gitlab.com/feng3d/cannon-plugin.git"
   },
   "bugs": {
-    "url": "https://gitee.com/feng3d/cannon-plugin/issues"
+    "url": "https://gitlab.com/feng3d/cannon-plugin/issues"
   },
-  "devDependencies": {},
-  "dependencies": {}
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
 }

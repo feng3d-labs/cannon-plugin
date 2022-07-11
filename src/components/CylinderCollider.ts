@@ -2,6 +2,11 @@ namespace feng3d { export interface ComponentMap { CylinderCollider: CANNON.Cyli
 
 namespace CANNON
 {
+    export interface CylinderCollider
+    {
+        get shape(): Cylinder;
+    }
+
     /**
      * 圆柱体碰撞体
      */
@@ -36,9 +41,6 @@ namespace CANNON
         @feng3d.oav()
         @feng3d.serialize
         segmentsW = 16;
-
-        readonly shape: Cylinder;
-        protected _shape: Cylinder;
 
         init()
         {

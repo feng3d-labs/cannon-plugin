@@ -2,6 +2,11 @@ namespace feng3d { export interface ComponentMap { CapsuleCollider: CANNON.Capsu
 
 namespace CANNON
 {
+    export interface CapsuleCollider
+    {
+        get shape(): Trimesh;
+    }
+
     /**
      * 胶囊体碰撞体
      */
@@ -92,9 +97,6 @@ namespace CANNON
             this.invalidateGeometry();
         }
         private _yUp = true;
-
-        readonly shape: Trimesh;
-        protected _shape: Trimesh;
 
         init()
         {

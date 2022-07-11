@@ -2,6 +2,11 @@ namespace feng3d { export interface ComponentMap { BoxCollider: CANNON.BoxCollid
 
 namespace CANNON
 {
+    export interface BoxCollider
+    {
+        get shape(): Box;
+    }
+
     /**
      * 长方体碰撞体
      */
@@ -30,7 +35,6 @@ namespace CANNON
         @feng3d.serialize
         depth = 1;
 
-        readonly shape: Box;
         protected _shape: Box;
 
         init()

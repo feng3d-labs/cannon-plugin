@@ -2,6 +2,11 @@ namespace feng3d { export interface ComponentMap { SphereCollider: CANNON.Sphere
 
 namespace CANNON
 {
+    export interface SphereCollider
+    {
+        get shape(): Sphere;
+    }
+
     /**
      * 球形碰撞体
      */
@@ -26,9 +31,6 @@ namespace CANNON
         }
 
         private _radius = 0.5;
-
-        readonly shape: Sphere;
-        protected _shape: Sphere;
 
         init()
         {
