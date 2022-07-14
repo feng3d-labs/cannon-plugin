@@ -81,7 +81,7 @@ namespace CANNON
         {
             super.update();
 
-            var physicsWorld = this.getComponentsInParents("PhysicsWorld")[0];
+            var physicsWorld = this.getComponentsInParent(PhysicsWorld)[0];
             var world = physicsWorld.world;
 
             this.particles.forEach(p =>

@@ -4,27 +4,27 @@ namespace feng3d
     {
         if (type == "Cube")
         {
-            g.addComponent("BoxCollider");
-            g.addComponent("Rigidbody");
+            g.addComponent(CANNON.BoxCollider);
+            g.addComponent(CANNON.Rigidbody);
         } else if (type == "Plane")
         {
-            g.addComponent("PlaneCollider");
-            g.addComponent("Rigidbody");
+            g.addComponent(CANNON.PlaneCollider);
+            g.addComponent(CANNON.Rigidbody);
         } else if (type == "Cylinder")
         {
-            g.addComponent("CylinderCollider");
-            g.addComponent("Rigidbody");
+            g.addComponent(CANNON.CylinderCollider);
+            g.addComponent(CANNON.Rigidbody);
         } else if (type == "Sphere")
         {
-            g.addComponent("SphereCollider");
-            g.addComponent("Rigidbody");
+            g.addComponent(CANNON.SphereCollider);
+            g.addComponent(CANNON.Rigidbody);
         } else if (type == "Capsule")
         {
-            g.addComponent("CapsuleCollider");
-            g.addComponent("Rigidbody");
+            g.addComponent(CANNON.CapsuleCollider);
+            g.addComponent(CANNON.Rigidbody);
         } else if (type == "Cloth")
         {
-            g.addComponent("Cloth")
+            g.addComponent(CANNON.Cloth)
         }
         return g;
     });
