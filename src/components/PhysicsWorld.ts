@@ -47,7 +47,7 @@ namespace CANNON
             this.on("removeComponent", this.onRemovedComponent, this);
         }
 
-        private onAddComponent(e: feng3d.Event<{ gameobject: feng3d.GameObject; component: feng3d.Component; }>)
+        private onAddComponent(e: feng3d.IEvent<{ gameobject: feng3d.GameObject; component: feng3d.Component; }>)
         {
             if (e.data.component instanceof Rigidbody)
             {
@@ -55,7 +55,7 @@ namespace CANNON
             }
         }
 
-        private onRemovedComponent(e: feng3d.Event<{ gameobject: feng3d.GameObject; component: feng3d.Component; }>)
+        private onRemovedComponent(e: feng3d.IEvent<{ gameobject: feng3d.GameObject; component: feng3d.Component; }>)
         {
             if (e.data.component instanceof Rigidbody)
             {
@@ -63,7 +63,7 @@ namespace CANNON
             }
         }
 
-        private onAddChild(e: feng3d.Event<{ parent: feng3d.GameObject; child: feng3d.GameObject; }>)
+        private onAddChild(e: feng3d.IEvent<{ parent: feng3d.GameObject; child: feng3d.GameObject; }>)
         {
             var bodyComponent = e.data.child.getComponent(Rigidbody);
             if (bodyComponent)
@@ -72,7 +72,7 @@ namespace CANNON
             }
         }
 
-        private onRemoveChild(e: feng3d.Event<{ parent: feng3d.GameObject; child: feng3d.GameObject; }>)
+        private onRemoveChild(e: feng3d.IEvent<{ parent: feng3d.GameObject; child: feng3d.GameObject; }>)
         {
             var bodyComponent = e.data.child.getComponent(Rigidbody);
             if (bodyComponent)
