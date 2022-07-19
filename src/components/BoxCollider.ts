@@ -1,10 +1,13 @@
-namespace feng3d { export interface ComponentMap { BoxCollider: CANNON.BoxCollider; } }
-
-namespace CANNON
+namespace feng3d
 {
+    export interface ComponentMap
+    {
+        BoxCollider: BoxCollider;
+    }
+
     export interface BoxCollider
     {
-        get shape(): Box;
+        get shape(): CANNON.Box;
     }
 
     /**
@@ -35,12 +38,12 @@ namespace CANNON
         @feng3d.serialize
         depth = 1;
 
-        protected _shape: Box;
+        protected _shape: CANNON.Box;
 
         init()
         {
             var halfExtents = new Vector3(this.width / 2, this.height / 2, this.depth / 2);
-            this._shape = new Box(halfExtents);
+            this._shape = new CANNON.Box(halfExtents);
         }
     }
 }

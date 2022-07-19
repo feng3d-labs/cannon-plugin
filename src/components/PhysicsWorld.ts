@@ -1,7 +1,10 @@
-namespace feng3d { export interface ComponentMap { PhysicsWorld: CANNON.PhysicsWorld; } }
-
-namespace CANNON
+namespace feng3d
 {
+    export interface ComponentMap
+    {
+        PhysicsWorld: PhysicsWorld;
+    }
+
     /**
      * 物理世界组件
      */
@@ -14,7 +17,7 @@ namespace CANNON
         /**
          * 物理世界
          */
-        world = new World();
+        world = new CANNON.World();
 
         /**
          * 重力加速度

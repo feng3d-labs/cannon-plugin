@@ -1,10 +1,13 @@
-namespace feng3d { export interface ComponentMap { SphereCollider: CANNON.SphereCollider; } }
-
-namespace CANNON
+namespace feng3d
 {
+    export interface ComponentMap
+    {
+        SphereCollider: SphereCollider;
+    }
+
     export interface SphereCollider
     {
-        get shape(): Sphere;
+        get shape(): CANNON.Sphere;
     }
 
     /**
@@ -34,7 +37,7 @@ namespace CANNON
 
         init()
         {
-            this._shape = new Sphere(this._radius);
+            this._shape = new CANNON.Sphere(this._radius);
         }
     }
 }

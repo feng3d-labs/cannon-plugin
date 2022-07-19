@@ -1,7 +1,10 @@
-namespace feng3d { export interface ComponentMap { Collider: CANNON.Collider; } }
-
-namespace CANNON
+namespace feng3d
 {
+    export interface ComponentMap
+    {
+        Collider: Collider;
+    }
+
     /**
      * 碰撞体
      */
@@ -12,6 +15,6 @@ namespace CANNON
         {
             return this._shape;
         }
-        protected _shape: Shape;
+        protected _shape: CANNON.Shape;
     }
 }

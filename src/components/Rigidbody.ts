@@ -1,7 +1,10 @@
-namespace feng3d { export interface ComponentMap { Rigidbody: CANNON.Rigidbody; } }
-
-namespace CANNON
+namespace feng3d
 {
+    export interface ComponentMap
+    {
+        Rigidbody: Rigidbody;
+    }
+
     /**
      * 刚体
      */
@@ -11,7 +14,7 @@ namespace CANNON
     {
         __class__: "physics.Rigidbody";
 
-        body = new Body();
+        body = new CANNON.Body();
 
         runEnvironment = feng3d.RunEnvironment.feng3d;
 
@@ -28,7 +31,7 @@ namespace CANNON
 
         init()
         {
-            this.body = new Body({ mass: this.mass });
+            this.body = new CANNON.Body({ mass: this.mass });
 
             this.body.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
 

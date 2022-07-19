@@ -1,10 +1,13 @@
-namespace feng3d { export interface ComponentMap { CapsuleCollider: CANNON.CapsuleCollider; } }
-
-namespace CANNON
+namespace feng3d
 {
+    export interface ComponentMap
+    {
+        CapsuleCollider: CapsuleCollider;
+    }
+
     export interface CapsuleCollider
     {
-        get shape(): Trimesh;
+        get shape(): CANNON.Trimesh;
     }
 
     /**
@@ -112,7 +115,7 @@ namespace CANNON
             g.segmentsH = this._segmentsH;
             g.yUp = this._yUp;
             g.updateGrometry();
-            this._shape = new Trimesh(g.positions, g.indices);
+            this._shape = new CANNON.Trimesh(g.positions, g.indices);
         }
     }
 }

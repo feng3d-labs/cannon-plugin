@@ -1,13 +1,16 @@
-namespace feng3d { export interface ComponentMap { Cloth: CANNON.Cloth; } }
-
-namespace CANNON
+namespace feng3d
 {
+    export interface ComponentMap
+    {
+        Cloth: Cloth;
+    }
+
     @feng3d.RegisterComponent()
     export class Cloth extends feng3d.Renderable
     {
         runEnvironment = feng3d.RunEnvironment.feng3d;
-        particles: Body[][];
-        constraints: DistanceConstraint[];
+        particles: CANNON.Body[][];
+        constraints: CANNON.DistanceConstraint[];
 
         init()
         {
@@ -36,7 +39,7 @@ namespace CANNON
 
             var clothGeometry = this.geometry = new feng3d.ParametricGeometry(clothFunction, Nx, Ny, true);
 
-            var particles: Body[][] = [];
+            var particles: CANNON.Body[][] = [];
 
             // Create cannon particles
             for (var i = 0, il = Nx + 1; i !== il; i++)
@@ -46,10 +49,10 @@ namespace CANNON
                 {
                     var idx = j * (Nx + 1) + i;
                     var p = clothFunction(i / (Nx + 1), j / (Ny + 1));
-                    var particle = new Body({
+                    var particle = new CANNON.Body({
                         mass: j == Ny ? 0 : mass
                     });
-                    particle.addShape(new Particle());
+                    particle.addShape(new CANNON.Particle());
                     particle.linearDamping = 0.5;
                     particle.position.set(
                         p.x,
@@ -60,10 +63,10 @@ namespace CANNON
                     particle.velocity.set(0, 0, -0.1 * (Ny - j));
                 }
             }
-            var constraints: DistanceConstraint[] = [];
+            var constraints: CANNON.DistanceConstraint[] = [];
             function connect(i1: number, j1: number, i2: number, j2: number)
             {
-                constraints.push(new DistanceConstraint(particles[i1][j1], particles[i2][j2], restDistance));
+                constraints.push(new CANNON.DistanceConstraint(particles[i1][j1], particles[i2][j2], restDistance));
             }
             for (var i = 0; i < Nx + 1; i++)
             {

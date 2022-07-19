@@ -1,10 +1,13 @@
-namespace feng3d { export interface ComponentMap { CylinderCollider: CANNON.CylinderCollider; } }
-
-namespace CANNON
+namespace feng3d
 {
+    export interface ComponentMap
+    {
+        CylinderCollider: CylinderCollider;
+    }
+
     export interface CylinderCollider
     {
-        get shape(): Cylinder;
+        get shape(): CANNON.Cylinder;
     }
 
     /**
@@ -44,7 +47,7 @@ namespace CANNON
 
         init()
         {
-            this._shape = new Cylinder(this.topRadius, this.bottomRadius, this.height, this.segmentsW);
+            this._shape = new CANNON.Cylinder(this.topRadius, this.bottomRadius, this.height, this.segmentsW);
         }
     }
 }

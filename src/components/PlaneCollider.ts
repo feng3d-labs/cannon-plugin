@@ -1,10 +1,13 @@
-namespace feng3d { export interface ComponentMap { PlaneCollider: CANNON.PlaneCollider; } }
-
-namespace CANNON
+namespace feng3d
 {
+    export interface ComponentMap
+    {
+        PlaneCollider: PlaneCollider;
+    }
+
     export interface PlaneCollider
     {
-        get shape(): Plane;
+        get shape(): CANNON.Plane;
     }
 
     /**
@@ -16,7 +19,7 @@ namespace CANNON
     {
         init()
         {
-            this._shape = new Plane();
+            this._shape = new CANNON.Plane();
         }
     }
 }
