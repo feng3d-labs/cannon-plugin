@@ -1,44 +1,25 @@
 {
     "compilerOptions": {
         "target": "ES5",
+        "module": "CommonJS",
         "noImplicitAny": false,
         "sourceMap": true,
         "declarationMap": true,
         "declaration": true,
-        "composite": true,
-        // "strict": true,
-        "skipLibCheck": true,
         "experimentalDecorators": true,
         "lib": [
             "ES2015",
-            "dom"
+            "DOM",
         ],
-        "outFile": "dist/index.js",
-        // "outDir": "debug",
+        "outDir": "lib"
     },
-    "references": [
-        {
-            "path": "../cannon",
-        },
+    "include": [
+        "src/**/*.ts"
     ],
-    "files": [
-        //
-        "../feng3d/index.d.ts",
-        // 扩展feng3d，对接物理引擎
-        "src/World.ts",
-        //
-        "src/components/Rigidbody.ts",
-        "src/components/Collider.ts",
-        "src/components/BoxCollider.ts",
-        "src/components/SphereCollider.ts",
-        "src/components/CylinderCollider.ts",
-        "src/components/CapsuleCollider.ts",
-        "src/components/PlaneCollider.ts",
-        "src/components/PhysicsWorld.ts",
-        "src/components/Cloth.ts",
-        // 
-        "src/polyfill/ClassUtils.ts",
-        "src/polyfill/GameObject.ts",
-        "src/polyfill/View.ts",
-    ]
+    "ts-node": {
+        "files": true,
+        "compilerOptions": {
+            "esModuleInterop": true
+        }
+    }
 }
