@@ -1,25 +1,29 @@
-namespace feng3d
+import { Plane } from '@feng3d/connon';
+import { AddComponentMenu, RegisterComponent } from 'feng3d';
+import { Collider } from './Collider';
+
+declare global
 {
-    export interface ComponentMap
+    export interface MixinsComponentMap
     {
         PlaneCollider: PlaneCollider;
     }
+}
 
-    export interface PlaneCollider
-    {
-        get shape(): CANNON.Plane;
-    }
+export interface PlaneCollider
+{
+    get shape(): Plane;
+}
 
-    /**
-     * 平面碰撞体
-     */
-    @feng3d.AddComponentMenu("Physics/Plane Collider")
-    @feng3d.RegisterComponent()
-    export class PlaneCollider extends Collider
+/**
+ * 平面碰撞体
+ */
+@AddComponentMenu('Physics/Plane Collider')
+@RegisterComponent()
+export class PlaneCollider extends Collider
+{
+    init()
     {
-        init()
-        {
-            this._shape = new CANNON.Plane();
-        }
+        this._shape = new Plane();
     }
 }

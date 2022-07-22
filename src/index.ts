@@ -7,7 +7,6 @@ export * from './components/PhysicsWorld';
 export * from './components/PlaneCollider';
 export * from './components/Rigidbody';
 export * from './components/SphereCollider';
-export * from './polyfill/ClassUtils';
 export * from './polyfill/GameObject';
 export * from './polyfill/View';
 export * from './World';

@@ -1,20 +1,23 @@
-namespace feng3d
+import { Shape } from '@feng3d/connon';
+import { Component, RegisterComponent } from 'feng3d';
+
+declare global
 {
-    export interface ComponentMap
+    export interface MixinsComponentMap
     {
         Collider: Collider;
     }
+}
 
-    /**
-     * 碰撞体
-     */
-    @feng3d.RegisterComponent()
-    export class Collider extends feng3d.Component
+/**
+ * 碰撞体
+ */
+@RegisterComponent()
+export class Collider extends Component
+{
+    get shape()
     {
-        get shape()
-        {
-            return this._shape;
-        }
-        protected _shape: CANNON.Shape;
+        return this._shape;
     }
+    protected _shape: Shape;
 }

@@ -1,53 +1,57 @@
-namespace feng3d
+import { Cylinder } from '@feng3d/connon';
+import { AddComponentMenu, oav, RegisterComponent, serialize } from 'feng3d';
+import { Collider } from './Collider';
+
+declare global
 {
-    export interface ComponentMap
+    export interface MixinsComponentMap
     {
         CylinderCollider: CylinderCollider;
     }
+}
 
-    export interface CylinderCollider
-    {
-        get shape(): CANNON.Cylinder;
-    }
+export interface CylinderCollider
+{
+    get shape(): Cylinder;
+}
+
+/**
+ * 圆柱体碰撞体
+ */
+@AddComponentMenu('Physics/Cylinder Collider')
+@RegisterComponent()
+export class CylinderCollider extends Collider
+{
+    /**
+     * 顶部半径
+     */
+    @oav()
+    @serialize
+    topRadius = 0.5;
 
     /**
-     * 圆柱体碰撞体
+     * 底部半径
      */
-    @feng3d.AddComponentMenu("Physics/Cylinder Collider")
-    @feng3d.RegisterComponent()
-    export class CylinderCollider extends Collider
+    @oav()
+    @serialize
+    bottomRadius = 0.5;
+
+    /**
+     * 高度
+     */
+    @oav()
+    @serialize
+    height = 2;
+
+    /**
+     * 横向分割数
+     */
+    @oav()
+    @serialize
+    segmentsW = 16;
+
+    init()
     {
-        /**
-         * 顶部半径
-         */
-        @feng3d.oav()
-        @feng3d.serialize
-        topRadius = 0.5;
-
-        /**
-         * 底部半径
-         */
-        @feng3d.oav()
-        @feng3d.serialize
-        bottomRadius = 0.5;
-
-        /**
-         * 高度
-         */
-        @feng3d.oav()
-        @feng3d.serialize
-        height = 2;
-
-        /**
-         * 横向分割数
-         */
-        @feng3d.oav()
-        @feng3d.serialize
-        segmentsW = 16;
-
-        init()
-        {
-            this._shape = new CANNON.Cylinder(this.topRadius, this.bottomRadius, this.height, this.segmentsW);
-        }
+        this._shape = new Cylinder(this.topRadius, this.bottomRadius, this.height, this.segmentsW);
     }
 }

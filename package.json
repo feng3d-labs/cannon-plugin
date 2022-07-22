@@ -63,7 +63,7 @@
     "typescript": "4.3.5"
   },
   "dependencies": {
-    "feng3d": "^0.4.2",
-    "@feng3d/connon": "^0.4.1"
+    "feng3d": "^0.4.1",
+    "@feng3d/cannon": "^0.4.1"
   }
 }

@@ -1,43 +1,47 @@
-namespace feng3d
+import { Sphere } from '@feng3d/connon';
+import { AddComponentMenu, oav, RegisterComponent, serialize } from 'feng3d';
+import { Collider } from './Collider';
+
+declare global
 {
-    export interface ComponentMap
+    export interface MixinsComponentMap
     {
         SphereCollider: SphereCollider;
     }
+}
 
-    export interface SphereCollider
+export interface SphereCollider
+{
+    get shape(): Sphere;
+}
+
+/**
+ * 球形碰撞体
+ */
+@AddComponentMenu('Physics/Sphere Collider')
+@RegisterComponent()
+export class SphereCollider extends Collider
+{
+    /**
+     * 半径
+     */
+    @oav()
+    @serialize
+    get radius()
     {
-        get shape(): CANNON.Sphere;
+        return this._radius;
+    }
+    set radius(v)
+    {
+        this._radius = v;
+        if (this._shape)
+        { this._shape.radius = v; }
     }
 
-    /**
-     * 球形碰撞体
-     */
-    @feng3d.AddComponentMenu("Physics/Sphere Collider")
-    @feng3d.RegisterComponent()
-    export class SphereCollider extends Collider
+    private _radius = 0.5;
+
+    init()
     {
-        /**
-         * 半径
-         */
-        @feng3d.oav()
-        @feng3d.serialize
-        get radius()
-        {
-            return this._radius;
-        }
-        set radius(v)
-        {
-            this._radius = v;
-            if (this._shape)
-                this._shape.radius = v;
-        }
-
-        private _radius = 0.5;
-
-        init()
-        {
-            this._shape = new CANNON.Sphere(this._radius);
-        }
+        this._shape = new Sphere(this._radius);
     }
 }

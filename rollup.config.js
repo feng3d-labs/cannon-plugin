@@ -49,6 +49,7 @@ async function main()
     {
         namespaces[key] = 'feng3d';
     }
+    namespaces['@feng3d/cannon'] = 'CANNON';
 
     let banner = [
         `/*!`,
