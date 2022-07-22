@@ -1,4 +1,4 @@
-import { Trimesh } from '@feng3d/connon';
+import { Trimesh } from '@feng3d/cannon';
 import { CapsuleGeometry, oav, RegisterComponent, serialize } from 'feng3d';
 import { Collider } from './Collider';
 

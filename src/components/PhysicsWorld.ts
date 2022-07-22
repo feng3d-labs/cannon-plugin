@@ -1,4 +1,4 @@
-import { World } from '@feng3d/connon';
+import { World } from '@feng3d/cannon';
 import { AddComponentMenu, Behaviour, Component, GameObject, IEvent, oav, RegisterComponent, RunEnvironment, serialize, Vector3 } from 'feng3d';
 import { Rigidbody } from './Rigidbody';
 

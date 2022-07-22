@@ -1,4 +1,4 @@
-import { Sphere } from '@feng3d/connon';
+import { Sphere } from '@feng3d/cannon';
 import { AddComponentMenu, oav, RegisterComponent, serialize } from 'feng3d';
 import { Collider } from './Collider';
 

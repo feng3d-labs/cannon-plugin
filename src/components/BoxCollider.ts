@@ -1,4 +1,4 @@
-import { Box } from '@feng3d/connon';
+import { Box } from '@feng3d/cannon';
 import { AddComponentMenu, oav, RegisterComponent, serialize, Vector3 } from 'feng3d';
 import { Collider } from './Collider';
 

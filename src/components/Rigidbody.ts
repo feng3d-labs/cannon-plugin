@@ -1,4 +1,4 @@
-import { Body } from '@feng3d/connon';
+import { Body } from '@feng3d/cannon';
 import { AddComponentMenu, Behaviour, oav, RegisterComponent, RunEnvironment, Scene, serialize, Vector3 } from 'feng3d';
 import { Collider } from './Collider';
 

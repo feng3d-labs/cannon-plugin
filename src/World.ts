@@ -1,4 +1,4 @@
-import { World } from '@feng3d/connon';
+import { World } from '@feng3d/cannon';
 import { Vector3 } from 'feng3d';
 
 export { };

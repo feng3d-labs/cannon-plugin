@@ -1,4 +1,4 @@
-import { Body, DistanceConstraint, Particle } from '@feng3d/connon';
+import { Body, DistanceConstraint, Particle } from '@feng3d/cannon';
 import { ParametricGeometry, RegisterComponent, Renderable, RunEnvironment, Vector3 } from 'feng3d';
 import { PhysicsWorld } from './PhysicsWorld';
 

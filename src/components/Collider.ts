@@ -1,4 +1,4 @@
-import { Shape } from '@feng3d/connon';
+import { Shape } from '@feng3d/cannon';
 import { Component, RegisterComponent } from 'feng3d';
 
 declare global

@@ -1,4 +1,4 @@
-import { Plane } from '@feng3d/connon';
+import { Plane } from '@feng3d/cannon';
 import { AddComponentMenu, RegisterComponent } from 'feng3d';
 import { Collider } from './Collider';
 
