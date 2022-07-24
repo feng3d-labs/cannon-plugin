@@ -92,7 +92,7 @@ export class PhysicsWorld extends Behaviour
     update(interval?: number)
     {
         this.initWorld();
-        this.world.gravity = new Vector3(this.gravity.x, this.gravity.y, this.gravity.z);
+        this.world.gravity = new Vector3(this.gravity.x, this.gravity.y, this.gravity.z) as any;
         this.world.step(1.0 / 60.0, interval / 1000, 3);
     }
 }

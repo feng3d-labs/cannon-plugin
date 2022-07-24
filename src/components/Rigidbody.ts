@@ -38,7 +38,7 @@ export class Rigidbody extends Behaviour
     {
         this.body = new Body({ mass: this.mass });
 
-        this.body.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+        this.body.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z) as any;
 
         const colliders = this.gameObject.getComponents(Collider);
         colliders.forEach((element) =>
@@ -51,7 +51,7 @@ export class Rigidbody extends Behaviour
 
     private _onTransformChanged()
     {
-        this.body.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+        this.body.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z) as any;
     }
 
     /**

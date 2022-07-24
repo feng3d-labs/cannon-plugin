@@ -48,6 +48,6 @@ export class BoxCollider extends Collider
     init()
     {
         const halfExtents = new Vector3(this.width / 2, this.height / 2, this.depth / 2);
-        this._shape = new Box(halfExtents);
+        this._shape = new Box(halfExtents as any);
     }
 }
