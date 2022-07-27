@@ -1,64 +1,68 @@
-namespace feng3d
+import { Body } from '@feng3d/cannon';
+import { AddComponentMenu, Behaviour, oav, RegisterComponent, RunEnvironment, Scene, serialize, Vector3 } from 'feng3d';
+import { Collider } from './Collider';
+
+declare global
 {
-    export interface ComponentMap
+    export interface MixinsComponentMap
     {
         Rigidbody: Rigidbody;
     }
+}
+
+/**
+ * 刚体
+ */
+@AddComponentMenu('Physics/Rigidbody')
+@RegisterComponent()
+export class Rigidbody extends Behaviour
+{
+    __class__: 'physics.Rigidbody';
+
+    body = new Body();
+
+    runEnvironment = RunEnvironment.feng3d;
+
+    @oav()
+    @serialize
+    get mass()
+    {
+        return this.body.mass;
+    }
+    set mass(v)
+    {
+        this.body.mass = v;
+    }
+
+    init()
+    {
+        this.body = new Body({ mass: this.mass });
+
+        this.body.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z) as any;
+
+        const colliders = this.gameObject.getComponents(Collider);
+        colliders.forEach((element) =>
+        {
+            this.body.addShape(element.shape);
+        });
+
+        this.on('transformChanged', this._onTransformChanged, this);
+    }
+
+    private _onTransformChanged()
+    {
+        this.body.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z) as any;
+    }
 
     /**
-     * 刚体
+     * 每帧执行
      */
-    @feng3d.AddComponentMenu("Physics/Rigidbody")
-    @feng3d.RegisterComponent()
-    export class Rigidbody extends feng3d.Behaviour
+    update(_interval?: number)
     {
-        __class__: "physics.Rigidbody";
-
-        body = new CANNON.Body();
-
-        runEnvironment = feng3d.RunEnvironment.feng3d;
-
-        @feng3d.oav()
-        @feng3d.serialize
-        get mass()
+        const scene = this.getComponentsInParent(Scene)[0];
+        if (scene)
         {
-            return this.body.mass;
-        }
-        set mass(v)
-        {
-            this.body.mass = v;
-        }
-
-        init()
-        {
-            this.body = new CANNON.Body({ mass: this.mass });
-
-            this.body.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
-
-            var colliders = this.gameObject.getComponents(Collider);
-            colliders.forEach(element =>
-            {
-                this.body.addShape(element.shape);
-            });
-
-            this.on("transformChanged", this._onTransformChanged, this);
-        }
-
-        private _onTransformChanged()
-        {
-            this.body.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
-        }
-
-        /**
-         * 每帧执行
-         */
-        update(interval?: number)
-        {
-            var scene = this.getComponentsInParent(feng3d.Scene)[0];
-            if (scene)
-            {
-                this.transform.position = new feng3d.Vector3(this.body.position.x, this.body.position.y, this.body.position.z);
-            }
+            this.transform.position = new Vector3(this.body.position.x, this.body.position.y, this.body.position.z);
         }
     }
 }

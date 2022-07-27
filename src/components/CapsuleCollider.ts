@@ -1,121 +1,125 @@
-namespace feng3d
+import { Trimesh } from '@feng3d/cannon';
+import { CapsuleGeometry, oav, RegisterComponent, serialize } from 'feng3d';
+import { Collider } from './Collider';
+
+declare global
 {
-    export interface ComponentMap
+    export interface MixinsComponentMap
     {
         CapsuleCollider: CapsuleCollider;
     }
+}
 
-    export interface CapsuleCollider
+export interface CapsuleCollider
+{
+    get shape(): Trimesh;
+}
+
+/**
+ * 胶囊体碰撞体
+ */
+@RegisterComponent()
+export class CapsuleCollider extends Collider
+{
+    /**
+     * 胶囊体半径
+     */
+    @serialize
+    @oav()
+    get radius()
     {
-        get shape(): CANNON.Trimesh;
+        return this._radius;
     }
+    set radius(v)
+    {
+        if (this._radius === v) return;
+        this._radius = v;
+        this.invalidateGeometry();
+    }
+    private _radius = 0.5;
 
     /**
-     * 胶囊体碰撞体
+     * 胶囊体高度
      */
-    @feng3d.RegisterComponent()
-    export class CapsuleCollider extends Collider
+    @serialize
+    @oav()
+    get height()
     {
-        /**
-         * 胶囊体半径
-         */
-        @feng3d.serialize
-        @feng3d.oav()
-        get radius()
-        {
-            return this._radius;
-        }
-        set radius(v)
-        {
-            if (this._radius == v) return;
-            this._radius = v;
-            this.invalidateGeometry();
-        }
-        private _radius = 0.5;
+        return this._height;
+    }
+    set height(v)
+    {
+        if (this._height === v) return;
+        this._height = v;
+        this.invalidateGeometry();
+    }
+    private _height = 1;
 
-        /**
-         * 胶囊体高度
-         */
-        @feng3d.serialize
-        @feng3d.oav()
-        get height()
-        {
-            return this._height;
-        }
-        set height(v)
-        {
-            if (this._height == v) return;
-            this._height = v;
-            this.invalidateGeometry();
-        }
-        private _height = 1
+    /**
+     * 横向分割数
+     */
+    @serialize
+    @oav()
+    get segmentsW()
+    {
+        return this._segmentsW;
+    }
+    set segmentsW(v)
+    {
+        if (this._segmentsW === v) return;
+        this._segmentsW = v;
+        this.invalidateGeometry();
+    }
+    private _segmentsW = 16;
 
-        /**
-         * 横向分割数
-         */
-        @feng3d.serialize
-        @feng3d.oav()
-        get segmentsW()
-        {
-            return this._segmentsW;
-        }
-        set segmentsW(v)
-        {
-            if (this._segmentsW == v) return;
-            this._segmentsW = v;
-            this.invalidateGeometry();
-        }
-        private _segmentsW = 16
+    /**
+     * 纵向分割数
+     */
+    @serialize
+    @oav()
+    get segmentsH()
+    {
+        return this._segmentsH;
+    }
+    set segmentsH(v)
+    {
+        if (this._segmentsH === v) return;
+        this._segmentsH = v;
+        this.invalidateGeometry();
+    }
+    private _segmentsH = 15;
 
-        /**
-         * 纵向分割数
-         */
-        @feng3d.serialize
-        @feng3d.oav()
-        get segmentsH()
-        {
-            return this._segmentsH;
-        }
-        set segmentsH(v)
-        {
-            if (this._segmentsH == v) return;
-            this._segmentsH = v;
-            this.invalidateGeometry();
-        }
-        private _segmentsH = 15;
+    /**
+     * 正面朝向 true:Y+ false:Z+
+     */
+    @serialize
+    @oav()
+    get yUp()
+    {
+        return this._yUp;
+    }
+    set yUp(v)
+    {
+        if (this._yUp === v) return;
+        this._yUp = v;
+        this.invalidateGeometry();
+    }
+    private _yUp = true;
 
-        /**
-         * 正面朝向 true:Y+ false:Z+
-         */
-        @feng3d.serialize
-        @feng3d.oav()
-        get yUp()
-        {
-            return this._yUp;
-        }
-        set yUp(v)
-        {
-            if (this._yUp == v) return;
-            this._yUp = v;
-            this.invalidateGeometry();
-        }
-        private _yUp = true;
+    init()
+    {
+        this.invalidateGeometry();
+    }
 
-        init()
-        {
-            this.invalidateGeometry();
-        }
-
-        private invalidateGeometry()
-        {
-            var g = new feng3d.CapsuleGeometry();
-            g.radius = this._radius;
-            g.height = this._height;
-            g.segmentsW = this._segmentsW;
-            g.segmentsH = this._segmentsH;
-            g.yUp = this._yUp;
-            g.updateGrometry();
-            this._shape = new CANNON.Trimesh(g.positions, g.indices);
-        }
+    private invalidateGeometry()
+    {
+        const g = new CapsuleGeometry();
+        g.radius = this._radius;
+        g.height = this._height;
+        g.segmentsW = this._segmentsW;
+        g.segmentsH = this._segmentsH;
+        g.yUp = this._yUp;
+        g.updateGrometry();
+        this._shape = new Trimesh(g.positions, g.indices);
     }
 }

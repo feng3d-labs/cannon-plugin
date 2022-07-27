@@ -1,96 +1,25 @@
 {
     "compilerOptions": {
         "target": "ES5",
+        "module": "CommonJS",
         "noImplicitAny": false,
         "sourceMap": true,
         "declarationMap": true,
         "declaration": true,
-        "composite": true,
-        // "strict": true,
-        "skipLibCheck": true,
         "experimentalDecorators": true,
         "lib": [
             "ES2015",
-            "dom"
+            "DOM",
         ],
-        "outFile": "dist/index.js",
-        // "outDir": "debug",
+        "outDir": "lib"
     },
-    "references": [
-        {
-            "path": "../feng3d/packages/event",
-        },
-        {
-            "path": "../feng3d/packages/bezier",
-        },
-        {
-            "path": "../feng3d/packages/objectview",
-        },
-        {
-            "path": "../feng3d/packages/polyfill",
-        },
-        {
-            "path": "../feng3d/packages/task",
-        },
-        {
-            "path": "../feng3d/packages/watcher",
-        },
-        {
-            "path": "../feng3d/packages/serialization",
-        },
-        {
-            "path": "../feng3d/packages/math",
-        },
-        {
-            "path": "../feng3d/packages/filesystem",
-        },
-        {
-            "path": "../feng3d/packages/shortcut",
-        },
-        {
-            "path": "../feng3d/packages/renderer",
-        },
-        {
-            "path": "../feng3d/packages/core",
-        },
-        {
-            "path": "../feng3d/packages/terrain",
-        },
-        {
-            "path": "../feng3d/packages/particlesystem",
-        },
-        {
-            "path": "../feng3d/packages/assets",
-        },
-        {
-            "path": "../feng3d/packages/parsers",
-        },
-        {
-            "path": "../feng3d/packages/ui",
-        },
-        {
-            "path": "../feng3d",
-        },
-        {
-            "path": "../cannon",
-        },
+    "include": [
+        "src/**/*.ts"
     ],
-    "files": [
-        // 扩展feng3d，对接物理引擎
-        "src/World.ts",
-        //
-        "src/components/Rigidbody.ts",
-        "src/components/Collider.ts",
-        "src/components/BoxCollider.ts",
-        "src/components/SphereCollider.ts",
-        "src/components/CylinderCollider.ts",
-        "src/components/CapsuleCollider.ts",
-        "src/components/PlaneCollider.ts",
-        "src/components/PhysicsWorld.ts",
-        "src/components/Cloth.ts",
-        // 
-        "src/polyfill/ClassUtils.ts",
-        "src/polyfill/GameObject.ts",
-        "src/polyfill/View.ts",
-    ]
+    "ts-node": {
+        "files": true,
+        "compilerOptions": {
+            "esModuleInterop": true
+        }
+    }
 }
